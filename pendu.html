@@ -12,6 +12,9 @@
       "singe",
       "extraordinaire",
       "pancake",
+      "livres",
+      "ordinateur",
+      "souris",
     ]
 
     var motSecret = mots[Math.floor(Math.random() * mots.length)];
@@ -31,6 +34,7 @@
       } else if ( reponse.length !== 1){
         alert("tu ne doit saisir qu'une seule lettre.");
       } else {
+        reponse = reponse.toLowerCase();
         for (var j = 0; j < motSecret.length; j++) {
           if (motSecret[j] === reponse) {
             tableauReponses[j] = reponse;
