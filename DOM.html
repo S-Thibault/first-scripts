@@ -6,11 +6,17 @@
   <body>
     <h1 id="titre-principal">Bonjour tout le monde !</h1>
 
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
     <script>
-    var elementTitre = document.getElementById("titre-principal");
-    console.log(elementTitre.innerHTML);
+      for (var i = 0; i < 3; i++){
+        var loisir = prompt("Dis-moi l'un de tes loisirs favoris");
+      $("body").append("<p>" + loisir + "</p>")
+      }
+      
     var texteNouveauTitre = prompt("Veuillez entrer un nouveau titre :");
     elementTitre.innerHTML = texteNouveauTitre;
+    $("#titre-principal").text(texteNouveauTitre);
     </script>
   </body>
   </html>
