@@ -7,12 +7,15 @@
     <h1>Bonjour tout le monde !</h1>
     <p>Ma première page web.</p>
     <script>
-    var nom = "Boris";
+    var txt ="Bonjour "
+    var nom = prompt("Entrez votre prénom s'il vous plaît :");
 	console.log("Bonjour " + nom);
 	if (nom.length > 7) {
 		console.log("Wow, ton prénom est VRAIMENT long !");
+      document.body.innerHTML =  txt + nom + " : Wow, ton prénom est VRAIMENT long !";
 	} else {
     console.log("Ton prénom n’est pas très long.");
+      document.body.innerHTML = txt + nom + " : Ton prénom n’est pas très long.";
 	}
     </script>
 </body>
