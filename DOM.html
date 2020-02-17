@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jouer avec le DOM</title>
+  </head>
+  <body>
+    <h1 id="titre-principal">Bonjour tout le monde !</h1>
+
+    <script>
+    var elementTitre = document.getElementById("titre-principal");
+    console.log(elementTitre.innerHTML);
+    var texteNouveauTitre = prompt("Veuillez entrer un nouveau titre :");
+    elementTitre.innerHTML = texteNouveauTitre;
+    </script>
+  </body>
+  </html>
