@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Le Pendu</title>
+</head>
+<body>
+    <h1>Le Pendu</h1>
+
+    <script>
+  var mots = [
+    "javascript",
+      "singe",
+      "extraordinaire",
+      "pancake",
+    ]
+
+    var motSecret = mots[Math.floor(Math.random() * mots.length)];
+
+    var tableauReponses = [];
+    for (var i = 0; i < motSecret.length; i++) {
+      tableauReponses [i] = "_";
+    }
+
+    var nombresLettresManquantes = motSecret.length;
+
+    while (nombresLettresManquantes > 0) {
+      alert(tableauReponses.join(""));
+      var reponse = prompt ("Devine une lettre, ou clique sur annuler pour quitter la partie.");
+      if (reponse === null) {
+        break;
+      } else if ( reponse.length !== 1){
+        alert("tu ne doit saisir qu'une seule lettre.");
+      } else {
+        for (var j = 0; j < motSecret.length; j++) {
+          if (motSecret[j] === reponse) {
+            tableauReponses[j] = reponse;
+            nombresLettresManquantes--;
+          }
+        }
+      }
+    }
+    alert(tableauReponses.join(""));
+    alert("Felicitation le mot secret est " + motSecret);
+    </script>
+    </body>
+    </html>
