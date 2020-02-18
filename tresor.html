@@ -9,59 +9,71 @@
 <img id="carte" width=400 height=400
     src="http://nostarch.com/images/treasuremap.png">
 
-
 	<p id="distance"></p>
 
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
-    <script>
+	<script>
 
-    // nombre aléatoire
-    var creerNombreAleatoire = function (dimension) {
-    		return Math.floor(Math.random() * dimension);
-    	}
+	// nombre aléatoire
+	var creerNombreAleatoire = function (dimension) {
+		return Math.floor(Math.random() * dimension);
+	}
 
-      // distance entre un événement de clic et la cible
+  // distance entre un événement de clic et la cible
 	var calculerDistance = function (evenement, cible) {
 		var diffX = evenement.offsetX - cible.x;
-    var diffY = evenement.offsetY - cible.y;
-    		return Math.sqrt((diffX * diffY) + (diffX * diffY));
-    	};
+		var diffY = evenement.offsetY - cible.y;
+		return Math.sqrt((diffX * diffY) + (diffX * diffY));
+	};
 
-      // chaîne de caractères 
-      	var creerIndiceDistance = function (distance) {
-      		if (distance < 10) {
-      			return "Tu brûles !";
-      		} else if (distance < 20) {
-      			return "Tu chauffes vraiment !";
-      		} else if (distance < 40) {
-      			return "Tu chauffes un peu !";
-      		} else if (distance < 80) {
-      			return "Tu chauffes !";
-      		} else if (distance < 160) {
-      			return "Tu refroidis !";
-      		} else if (distance < 320) {
-      			return "Tu refroidis vraiment !";
-      		} else {
-      			return "Tu gèles !";
-      		}
-      	};
+	 // chaîne de caractères
+	var creerIndiceDistance = function (distance) {
+		if (distance < 10) {
+			return "Tu brûles !";
+		} else if (distance < 20) {
+			return "Tu chauffes vraiment !";
+		} else if (distance < 40) {
+			return "Tu chauffes un peu !";
+		} else if (distance < 80) {
+			return "Tu chauffes !";
+		} else if (distance < 160) {
+			return "Tu refroidis !";
+		} else if (distance < 320) {
+			return "Tu refroidis vraiment !";
+		} else {
+			return "Tu gèles !";
+		}
+	};
 
       // variables
-        var largeur = 400;
-      	var hauteur = 400;
+      var largeur = 800;
+        var hauteur = 800;
         var clics = 0;
+        var clicsLimit = 20;
 
-        // position  aléatoire
-        var cible = {
-        		x: creerNombreAleatoire(largeur),
-        		y: creerNombreAleatoire(hauteur)
-          };
+     // position  aléatoire
+	var cible = {
+		x: creerNombreAleatoire(largeur),
+		y: creerNombreAleatoire(hauteur)
+	};
 
-          // gestion clics img
-          	$("carte").click(function (evenement) {
-          		clics++;
-            });
-    </script>
-    </body>
-    </html>
+	// gestion clics img
+	$("carte").click(function (evenement) {
+		clics++;
+
+		var distance = calculerDistance(evenement, cible);
+
+		var indiceDistance = creerIndiceDistance(distance);
+
+		$("#distance").text(indiceDistance);
+
+		if (distance < 8) {
+			alert("Tu as retrouvé le trésor en " + clics + " !");
+		}
+	}
+);
+
+	</script>
+</body>
+</html>
