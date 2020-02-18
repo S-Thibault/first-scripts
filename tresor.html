@@ -10,7 +10,7 @@
     src="http://nostarch.com/images/treasuremap.png">
 
 	<p id="distance"></p>
-  <p id="clics restant"></p>
+  <p id="clics-restant"></p>
 
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
@@ -75,7 +75,7 @@
 
 		$("#distance").text(indiceDistance);
 
-    $("#clics restant").text( clicsLimit - clics);
+    $("#clics-restant").text( clicsLimit - clics);
 
 		if (distance < 8) {
 			alert("Tu as retrouvé le trésor en " + clics + " clics!");
