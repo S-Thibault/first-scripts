@@ -10,18 +10,44 @@
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
 	<script>
-	var espaceGauche = 0;
+    var direction = 'right';
+      var offset = 0;
 
-  var deplacerTitre = function (){
-    $("#titre").offset({ left: espaceGauche })
+      $("#titre").offset({ left: offset, top: offset });
 
-    espaceGauche ++;
+      var moveHeading = function () {
+        if (direction === 'right') {
+          $("#titre").offset({ left: offset });
+          offset++;
+          if (offset > 200) {
+            offset = 0;
+            direction = 'down';
+          }
+        } else if (direction === 'down') {
+          $("#titre").offset({ top: offset });
+          offset++;
+          if (offset > 200) {
+            offset = 200;
+            direction = 'left';
+          }
+        } else if (direction === 'left') {
+          $("#titre").offset({ left: offset });
+          offset--;
+          if (offset < 0) {
+            offset = 200;
+            direction = 'up';
+          }
+        } else if (direction === 'up') {
+          $("#titre").offset({ top: offset });
+          offset--;
+          if (offset < 0) {
+            offset = 0;
+            direction = 'right';
+          }
+        }
+      };
 
-    if (espaceGauche > 200){
-      espaceGauche = 0;
-    }
-  };
-  setInterval(deplacerTitre, 30);
+      setInterval(moveHeading, 30);
 	</script>
 </body>
 </html>
