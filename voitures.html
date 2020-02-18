@@ -36,6 +36,33 @@ Voiture.prototype.deplécerADroite = function () {
   });
 };
 
+Voiture.prototype.deplacerAGauche = function() {
+		this.x -= 5;
+
+		this.voitureElement.css({
+			left: this.x,
+			top: this.y
+		});
+	};
+
+	Voiture.prototype.deplacerVersHaut = function() {
+    	this.y -= 5;
+
+    	this.voitureElement.css({
+        	left: this.x,
+        	top: this.y
+    	});
+	};
+
+	Voiture.prototype.deplacerVersBas = function() {
+    	this.y += 5;
+
+    	this.voitureElement.css({
+        	left: this.x,
+        	top: this.y
+    	});
+	};
+  
  var tesla = new Voiture (20, 20);
  var nissan = new Voiture (100, 200)
 
