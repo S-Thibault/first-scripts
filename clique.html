@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jouer avec le DOM</title>
+</head>
+
+<body>
+	<h1 id="titre-principal">Bonjour le monde !</h1>
+
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+	<script>
+	var gestionnaireClic = function (evenement) {
+		console.log("Clic ! " + evenement.pageX + " " + evenement.pageY);
+	}
+
+	$("h1").click(gestionnaireClic);
+	</script>
+</body>
+</html>
