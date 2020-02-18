@@ -28,6 +28,25 @@
     		return Math.sqrt((diffX * diffY) + (diffX * diffY));
     	};
 
+      // chaîne de caractères 
+      	var creerIndiceDistance = function (distance) {
+      		if (distance < 10) {
+      			return "Tu brûles !";
+      		} else if (distance < 20) {
+      			return "Tu chauffes vraiment !";
+      		} else if (distance < 40) {
+      			return "Tu chauffes un peu !";
+      		} else if (distance < 80) {
+      			return "Tu chauffes !";
+      		} else if (distance < 160) {
+      			return "Tu refroidis !";
+      		} else if (distance < 320) {
+      			return "Tu refroidis vraiment !";
+      		} else {
+      			return "Tu gèles !";
+      		}
+      	};
+
       // variables
         var largeur = 400;
       	var hauteur = 400;
