@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Voitures 2 </title>
+</head>
+<body>
+
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+<script>
+
+var Voiture = function (x, y) {
+  this.x = x;
+  this.y = y;
+};
+
+Voiture.prototype.dessiner = function (){
+  var voitureHtml = '<img src="http://nostarch.com/images/car.png">'
+
+  this.voitureElement = $(voitureHtml);
+
+  this.voitureElement.css({
+    position: "absolute",
+    left: this.x,
+    top: this.y,
+  });
+
+  $("body").append(this.voitureElement);
+}
+Voiture.prototype.deplécerADroite = function () {
+  this.x +=5;
+
+  this.voitureElement.css({
+    left: this.x,
+    top: this.y
+  });
+};
+
+ var tesla = new Voiture (20, 20);
+ var nissan = new Voiture (100, 200)
+
+ tesla.dessiner();
+ nissan.dessiner();
+</script>
+</body>
+</html>
