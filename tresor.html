@@ -10,6 +10,7 @@
     src="http://nostarch.com/images/treasuremap.png">
 
 	<p id="distance"></p>
+  <p id="clics restant"></p>
 
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
@@ -18,7 +19,7 @@
 	// nombre aléatoire
 	var creerNombreAleatoire = function (dimension) {
 		return Math.floor(Math.random() * dimension);
-	}
+	};
 
   // distance entre un événement de clic et la cible
 	var calculerDistance = function (evenement, cible) {
@@ -59,8 +60,14 @@
 	};
 
 	// gestion clics img
-	$("carte").click(function (evenement) {
+	$("#carte").click(function (evenement) {
 		clics++;
+
+    if (clics > clicsLimit) {
+            alert("GAME OVER");
+            return;
+          }
+
 
 		var distance = calculerDistance(evenement, cible);
 
@@ -68,8 +75,10 @@
 
 		$("#distance").text(indiceDistance);
 
+    $("#clics restant").text( clicsLimit - clics);
+
 		if (distance < 8) {
-			alert("Tu as retrouvé le trésor en " + clics + " !");
+			alert("Tu as retrouvé le trésor en " + clics + " clics!");
 		}
 	}
 );
