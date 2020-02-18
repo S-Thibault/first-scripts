@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> A la recherche du tresor enfoui ! </title>
+</head>
+<body>
+    <h1 id="titre"> A la recherche du tresor enfoui ! </h1>
+
+<img id="carte" width=400 height=400
+    src="http://nostarch.com/images/treasuremap.png">
+
+
+	<p id="distance"></p>
+
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <script>
+
+    // nombre aléatoire
+    var creerNombreAleatoire = function (dimension) {
+    		return Math.floor(Math.random() * dimension);
+    	}
+
+      // variables
+        var largeur = 400;
+      	var hauteur = 400;
+        var clics = 0;
+
+        // position  aléatoire
+        var cible = {
+        		x: creerNombreAleatoire(largeur),
+        		y: creerNombreAleatoire(hauteur)
+          };
+
+          // gestion clics img
+          	$("carte").click(function (evenement) {
+          		clics++;
+            });
+    </script>
+    </body>
+    </html>
