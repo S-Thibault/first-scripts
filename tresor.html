@@ -21,6 +21,13 @@
     		return Math.floor(Math.random() * dimension);
     	}
 
+      // distance entre un événement de clic et la cible
+	var calculerDistance = function (evenement, cible) {
+		var diffX = evenement.offsetX - cible.x;
+    var diffY = evenement.offsetY - cible.y;
+    		return Math.sqrt((diffX * diffY) + (diffX * diffY));
+    	};
+
       // variables
         var largeur = 400;
       	var hauteur = 400;
